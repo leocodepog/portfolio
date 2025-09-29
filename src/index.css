@@ -1,21 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Caveat:wght@400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Custom animations */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+/* Anime/Sketch themed custom styles */
+@layer base {
+  body {
+    font-family: 'Kalam', cursive;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   }
 }
 
-.animate-fade-in {
-  animation: fade-in 1s ease-out;
+/* Hand-drawn border animations */
+@keyframes draw-border {
+  0% {
+    stroke-dasharray: 0 1000;
+  }
+  100% {
+    stroke-dasharray: 1000 0;
+  }
+}
+
+.sketch-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.sketch-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+  background-size: 400% 400%;
+  animation: gradient-shift 3s ease infinite;
+  border-radius: 15px;
+  z-index: -1;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Anime-style floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(5px) rotate(-1deg); }
+}
+
+.anime-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Sketch-style wiggle animation */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(1deg); }
+  75% { transform: rotate(-1deg); }
+}
+
+.sketch-wiggle {
+  animation: wiggle 2s ease-in-out infinite;
+}
+
+/* Hand-drawn underline effect */
+.sketch-underline {
+  position: relative;
+}
+
+.sketch-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10'%3E%3Cpath d='M0,5 Q25,2 50,5 T100,5' stroke='%23ff6b6b' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  animation: draw-underline 2s ease-in-out infinite;
+}
+
+@keyframes draw-underline {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* Anime-style glow effects */
+.anime-glow {
+  box-shadow: 0 0 20px rgba(255, 107, 107, 0.3), 0 0 40px rgba(78, 205, 196, 0.2);
+  transition: all 0.3s ease;
+}
+
+.anime-glow:hover {
+  box-shadow: 0 0 30px rgba(255, 107, 107, 0.5), 0 0 60px rgba(78, 205, 196, 0.3);
+  transform: translateY(-5px);
+}
+
+/* Sketch-style buttons */
+.sketch-button {
+  position: relative;
+  background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+  border: 3px solid #2c3e50;
+  border-radius: 25px;
+  transform: rotate(-1deg);
+  transition: all 0.3s ease;
+}
+
+.sketch-button:hover {
+  transform: rotate(1deg) scale(1.05);
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Anime-style cards */
+.anime-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.anime-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.anime-card:hover::before {
+  left: 100%;
+}
+
+/* Sketch-style skill bars */
+.sketch-skill-bar {
+  position: relative;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid #34495e;
+}
+
+.sketch-skill-fill {
+  height: 100%;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+  border-radius: 8px;
+  position: relative;
+  animation: skill-fill 2s ease-out;
+}
+
+@keyframes skill-fill {
+  from { width: 0%; }
+}
+
+/* Custom scrollbar with anime theme */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+  border-radius: 10px;
+  border: 2px solid #2c3e50;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #4ecdc4, #ff6b6b);
 }
 
 /* Smooth scrolling */
@@ -23,26 +186,61 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #1f2937;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #3b82f6;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #2563eb;
-}
-
-/* Focus styles for accessibility */
+/* Focus styles with anime theme */
 *:focus {
-  outline: 2px solid #3b82f6;
-  outline-offset: 2px;
+  outline: 3px solid #ff6b6b;
+  outline-offset: 3px;
+  border-radius: 5px;
+}
+
+/* Text selection with anime colors */
+::selection {
+  background: #ff6b6b;
+  color: white;
+}
+
+/* Anime-style text effects */
+.anime-text {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-text 3s ease infinite;
+}
+
+@keyframes gradient-text {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Sketch-style decorative elements */
+.sketch-decoration {
+  position: relative;
+}
+
+.sketch-decoration::before {
+  content: '✦';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  color: #ff6b6b;
+  font-size: 1.5rem;
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sketch-button {
+    transform: rotate(0deg);
+  }
+  
+  .sketch-button:hover {
+    transform: rotate(0deg) scale(1.02);
+  }
 }

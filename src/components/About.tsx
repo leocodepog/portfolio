@@ -1,85 +1,119 @@
 import React from 'react';
-import { Code2, Rocket, Users, Award } from 'lucide-react';
+import { Code2, Rocket, Users, Award, Heart, Star, Sparkles } from 'lucide-react';
 
 const About = () => {
   const highlights = [
     {
       icon: <Code2 className="w-8 h-8" />,
-      title: "Full-Stack Expertise",
-      description: "Master of modern web technologies, from React & Node.js to cloud architectures"
+      title: "Full-Stack Magic ✨",
+      description: "Weaving spells with React, Node.js, and cloud architectures to create digital wonders!"
     },
     {
       icon: <Rocket className="w-8 h-8" />,
-      title: "Performance Focused",
-      description: "Optimizing applications for speed, scalability, and exceptional user experience"
+      title: "Performance Ninja 🥷",
+      description: "Optimizing apps faster than anime fight scenes - lightning speed guaranteed!"
     },
     {
       icon: <Users className="w-8 h-8" />,
-      title: "Team Leadership",
-      description: "Leading development teams and mentoring junior developers to success"
+      title: "Team Sensei 👨‍🏫",
+      description: "Leading dev squads and mentoring junior ninjas on their coding journey!"
     },
     {
       icon: <Award className="w-8 h-8" />,
-      title: "Innovation Driven",
-      description: "Constantly exploring new technologies and implementing cutting-edge solutions"
+      title: "Innovation Otaku 🎌",
+      description: "Always exploring new tech like discovering rare anime - passion-driven development!"
     }
   ];
 
   return (
-    <section id="about" className="py-20 bg-gray-900 text-white">
-      <div className="container mx-auto px-6">
+    <section id="about" className="py-20 relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 overflow-hidden opacity-10">
+        <div className="absolute top-10 left-10 text-8xl text-pink-300 anime-float">♡</div>
+        <div className="absolute top-20 right-20 text-6xl text-blue-300 anime-float" style={{animationDelay: '1s'}}>◇</div>
+        <div className="absolute bottom-20 left-20 text-7xl text-yellow-300 anime-float" style={{animationDelay: '2s'}}>☆</div>
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
+          {/* Section header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">About Me</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mb-8"></div>
+            <div className="inline-block anime-card p-6 rounded-3xl mb-6 sketch-decoration">
+              <h2 className="text-5xl md:text-6xl font-bold anime-text font-['Caveat']">
+                About This Coding Otaku! 🎌
+              </h2>
+            </div>
+            <div className="w-32 h-2 bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 mx-auto rounded-full sketch-wiggle"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-            <div>
-              <h3 className="text-2xl md:text-3xl font-bold mb-6 text-blue-400">
-                Crafting Digital Excellence
-              </h3>
-              <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                With over 8 years of experience in software development, I specialize in building 
-                scalable web applications and leading high-performing development teams. My passion 
-                lies in solving complex problems through elegant, maintainable code.
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            {/* Left column - Story */}
+            <div className="anime-card p-8 rounded-3xl">
+              <div className="flex items-center gap-3 mb-6">
+                <Heart className="w-8 h-8 text-pink-400 sketch-wiggle" />
+                <h3 className="text-3xl md:text-4xl font-bold text-white font-['Caveat']">
+                  My Coding Adventure! ⚡
+                </h3>
+              </div>
+              
+              <p className="text-lg text-white mb-6 leading-relaxed">
+                Konnichiwa! 👋 With 8+ years of coding adventures, I'm like the main character 
+                in a tech anime - always leveling up and facing new challenges! My superpower? 
+                Building scalable web applications that are as beautiful as Studio Ghibli films! ✨
               </p>
-              <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                I thrive in fast-paced environments where innovation meets execution, consistently 
-                delivering projects that exceed expectations and drive business growth.
+              
+              <p className="text-lg text-white mb-8 leading-relaxed">
+                I thrive in fast-paced environments where innovation meets kawaii design, 
+                consistently delivering projects that make clients go "SUGOI!" 🌟
               </p>
-              <div className="flex space-x-8">
-                <div>
-                  <div className="text-3xl font-bold text-cyan-400">50+</div>
-                  <div className="text-gray-400">Projects Completed</div>
+
+              {/* Stats with anime styling */}
+              <div className="grid grid-cols-3 gap-6">
+                <div className="text-center anime-card p-4 rounded-2xl">
+                  <div className="text-3xl font-bold anime-text font-['Caveat']">50+</div>
+                  <div className="text-white text-sm">Epic Projects</div>
+                  <div className="text-2xl">🎨</div>
                 </div>
-                <div>
-                  <div className="text-3xl font-bold text-cyan-400">8+</div>
-                  <div className="text-gray-400">Years Experience</div>
+                <div className="text-center anime-card p-4 rounded-2xl">
+                  <div className="text-3xl font-bold anime-text font-['Caveat']">8+</div>
+                  <div className="text-white text-sm">Years of Magic</div>
+                  <div className="text-2xl">⚡</div>
                 </div>
-                <div>
-                  <div className="text-3xl font-bold text-cyan-400">15+</div>
-                  <div className="text-gray-400">Team Members Led</div>
+                <div className="text-center anime-card p-4 rounded-2xl">
+                  <div className="text-3xl font-bold anime-text font-['Caveat']">15+</div>
+                  <div className="text-white text-sm">Team Members</div>
+                  <div className="text-2xl">👥</div>
                 </div>
               </div>
             </div>
             
-            <div className="grid grid-cols-1 gap-6">
+            {/* Right column - Highlights */}
+            <div className="space-y-6">
               {highlights.map((item, index) => (
                 <div 
                   key={index}
-                  className="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-blue-500 transition-all duration-300 hover:transform hover:scale-105"
+                  className="anime-card p-6 rounded-2xl hover:scale-105 transition-all duration-300 sketch-border"
+                  style={{animationDelay: `${index * 0.2}s`}}
                 >
                   <div className="flex items-center mb-4">
-                    <div className="text-blue-400 mr-4">
+                    <div className="text-pink-400 mr-4 anime-float">
                       {item.icon}
                     </div>
-                    <h4 className="text-xl font-semibold">{item.title}</h4>
+                    <h4 className="text-xl font-bold text-white font-['Caveat']">{item.title}</h4>
                   </div>
-                  <p className="text-gray-300">{item.description}</p>
+                  <p className="text-white opacity-90">{item.description}</p>
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* Fun quote section */}
+          <div className="text-center anime-card p-8 rounded-3xl">
+            <Sparkles className="w-12 h-12 text-yellow-400 mx-auto mb-4 sketch-wiggle" />
+            <blockquote className="text-2xl md:text-3xl font-['Caveat'] text-white mb-4">
+              "Code is poetry, bugs are plot twists, and every deployment is a season finale!" 
+            </blockquote>
+            <cite className="text-pink-300 font-['Caveat'] text-xl">- Leo Lin, Code Otaku 🎌</cite>
           </div>
         </div>
       </div>
